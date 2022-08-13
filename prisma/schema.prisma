@@ -11,11 +11,12 @@ datasource db {
 }
 
 model User {
-  id          String   @id @default(cuid())
-  name        String
-  dateOfBirth DateTime @db.Date
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id                 String   @id @default(cuid())
+  name               String
+  dateOfBirth        DateTime @db.Date
+  passportIssuedDate String
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
 
   @@map("users")
 }
