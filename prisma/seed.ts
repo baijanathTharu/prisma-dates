@@ -1,12 +1,11 @@
 import { PrismaClient } from '@prisma/client';
-import { createUsers, getUsers } from './seeds/user';
+import { filterUsersByPassportIssuedDate } from './seeds/user';
 
 const db = new PrismaClient();
 
-function main() {
+async function main() {
   try {
-    createUsers(db);
-    getUsers(db);
+    filterUsersByPassportIssuedDate(db);
   } catch (error) {
     console.log(error);
   }

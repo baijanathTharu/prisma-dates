@@ -19,3 +19,16 @@ export async function getUsers(db: PrismaClient) {
   const users = await db.user.findMany();
   console.log(JSON.stringify(users, null, 2));
 }
+
+export async function filterUsersByPassportIssuedDate(db: PrismaClient) {
+  const users = await db.user.findMany({
+    where: {
+      passportIssuedDate: {
+        gte: '1999-12-01',
+        lte: '2000-01-01',
+      },
+    },
+  });
+  console.log(JSON.stringify(users, null, 2));
+  console.log('data count', users.length);
+}
