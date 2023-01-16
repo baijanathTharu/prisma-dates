@@ -43,7 +43,7 @@ async function myScript() {
         if (err) {
           // log and return if we encounter an error
           console.error('could not execute command: ', err);
-          return;
+          throw new Error('Migration error');
         }
         // log the output received from the command
         console.log(`Ran migration for: ${db.name} \n`, output);
